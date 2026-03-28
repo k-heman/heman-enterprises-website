@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { getOrdersByUserId, updateOrder } from '../services/db';
 import type { Order } from '../services/db';
-import { Package, Clock, CheckCircle2, Truck, ShoppingBag, Calendar, XCircle } from 'lucide-react';
+import { Package, Clock, ShoppingBag, Calendar, XCircle } from 'lucide-react';
 
 const MyOrders: React.FC = () => {
   const { user } = useAuth();

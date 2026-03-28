@@ -34,7 +34,7 @@ const Checkout: React.FC = () => {
       village: '',
       mandal: '',
       district: '',
-      state: 'Telangana',
+      state: '',
       pincode: '',
       quantity: 1
     };
