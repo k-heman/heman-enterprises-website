@@ -176,7 +176,7 @@ const MyOrders: React.FC = () => {
                     ) : (
                       <>
                         <div className="status-block">
-                          <label>Current Progress</label>
+                          <label>Order Status</label>
                           <div
                             className="badge"
                             style={{
