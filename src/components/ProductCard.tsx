@@ -31,37 +31,42 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="card flex-col animate-fade-in" style={{ height: '100%' }}>
-      <div 
-        style={{ 
-          height: '240px', 
-          overflow: 'hidden', 
+    <div
+      onClick={handleDetailsClick}
+      className="card flex-col animate-fade-in"
+      style={{ height: '100%', cursor: 'pointer', transition: 'transform 0.2s' }}
+    >
+      <div
+        style={{
+          height: '240px',
+          overflow: 'hidden',
           position: 'relative',
           backgroundColor: '#f1f5f9'
         }}
       >
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          style={{ 
-            width: '100%', 
-            height: '100%', 
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{
+            width: '100%',
+            height: '100%',
             objectFit: 'contain',
             padding: '1rem',
             transition: 'transform 0.5s ease',
             backgroundColor: '#f8fafc'
-          }} 
+          }}
           loading="lazy"
           className="product-img"
         />
+        {/* Removed the extra onClick from here to keep code clean */}
         <div className="product-badges" style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', zIndex: 10, display: 'flex', flexDirection: 'column', gap: '0.25rem', alignItems: 'flex-end' }}>
           <span className="badge glass-dark text-light" style={{ color: 'white', fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}>{product.category}</span>
           {product.stock && (
-            <span 
-              className="badge" 
-              style={{ 
-                background: 'rgba(255, 255, 255, 0.9)', 
-                color: '#B91C1C', 
+            <span
+              className="badge"
+              style={{
+                background: 'rgba(255, 255, 255, 0.9)',
+                color: '#B91C1C',
                 border: '1px solid #FEE2E2',
                 fontSize: '0.65rem',
                 fontWeight: 700,
@@ -72,11 +77,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           )}
           {!product.inStock && (
-            <span 
-              className="badge" 
-              style={{ 
-                background: '#EF4444', 
-                color: 'white', 
+            <span
+              className="badge"
+              style={{
+                background: '#EF4444',
+                color: 'white',
                 border: 'none',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                 fontSize: '0.65rem',
@@ -88,10 +93,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           )}
         </div>
       </div>
-      
+
+      {/* Removed the extra onClick from here too */}
       <div className="card-content flex-col" style={{ flexGrow: 1, padding: '1rem', display: 'flex', flexDirection: 'column' }}>
         <h3 className="heading-xs" style={{ marginBottom: '0.5rem', flexGrow: 1, fontSize: '0.95rem', lineHeight: '1.3' }}>{product.name}</h3>
-        
+
         <div className="flex-between" style={{ marginTop: 'auto', paddingTop: '0.75rem', borderTop: '1px solid rgba(0,0,0,0.05)', gap: '0.5rem', flexWrap: 'wrap' }}>
           <span className="text-primary font-bold" style={{ fontSize: '1.1rem', fontWeight: 800 }}>
             {(!product.pricingType || product.pricingType === 'standard') ? (
@@ -102,13 +108,6 @@ export default function ProductCard({ product }: ProductCardProps) {
               <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>Contact for Price</span>
             )}
           </span>
-           <button 
-             onClick={handleDetailsClick} 
-             className="btn btn-outline" 
-             style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', flexShrink: 0 }}
-           >
-            Details
-          </button>
         </div>
       </div>
     </div>

@@ -267,15 +267,30 @@ const Checkout: React.FC = () => {
                   {errors.mandal && <p className="error-text"><AlertCircle size={12} /> {errors.mandal}</p>}
                 </div>
 
+                <div className="form-group full-width">
+                  <label>District <span className="req">*</span></label>
+                  <input
+                    type="text"
+                    name="district"
+                    className={errors.district ? 'input-error' : ''}
+                    value={formData.district}
+                    onChange={handleChange}
+                    placeholder="District name"
+                    required
+                  />
+                  {errors.district && <p className="error-text"><AlertCircle size={12} /> {errors.district}</p>}
+                </div>
+
                 <div className="form-row">
                   <div className="form-group">
-                    <label>District</label>
+                    <label>State</label>
                     <input
                       type="text"
-                      name="district"
-                      className="input-disabled"
-                      value={formData.district}
-                      readOnly
+                      name="state"
+                      value={formData.state}
+                      onChange={handleChange}
+                      placeholder="State name"
+                      required
                     />
                   </div>
 
