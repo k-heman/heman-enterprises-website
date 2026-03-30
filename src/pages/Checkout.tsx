@@ -234,7 +234,7 @@ const Checkout: React.FC = () => {
                 {/* Divider */}
                 <div className="section-divider">
                   <div className="line"></div>
-                  <span className="divider-text"><MapPin size={14} /> Delivery Address</span>
+                  <span className="divider-text"><MapPin size={14} />Enter your Delivery Address</span>
                   <div className="line"></div>
                 </div>
 

@@ -99,15 +99,33 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className="heading-xs" style={{ marginBottom: '0.5rem', flexGrow: 1, fontSize: '0.95rem', lineHeight: '1.3' }}>{product.name}</h3>
 
         <div className="flex-between" style={{ marginTop: 'auto', paddingTop: '0.75rem', borderTop: '1px solid rgba(0,0,0,0.05)', gap: '0.5rem', flexWrap: 'wrap' }}>
-          <span className="text-primary font-bold" style={{ fontSize: '1.1rem', fontWeight: 800 }}>
-            {(!product.pricingType || product.pricingType === 'standard') ? (
-              formatCurrency(product.price)
-            ) : product.pricingType === 'wholesale' ? (
-              <span style={{ color: '#059669', fontSize: '0.9rem' }}>Wholesale Price</span>
+        <div className="flex-col" style={{ marginTop: 'auto', paddingTop: '0.75rem', borderTop: '1px solid rgba(0,0,0,0.05)', gap: '0.25rem' }}>
+          {(!product.pricingType || product.pricingType === 'standard') ? (
+            product.discountedPrice && product.actualPrice ? (
+              <div className="flex-col">
+                <div className="flex items-center gap-2">
+                  <span className="text-primary font-bold" style={{ fontSize: '1.1rem', fontWeight: 800 }}>
+                    {formatCurrency(product.discountedPrice)}
+                  </span>
+                  <span style={{ color: '#10b981', fontSize: '0.75rem', fontWeight: 700, background: '#ecfdf5', padding: '1px 6px', borderRadius: '4px' }}>
+                    {Math.round(((product.actualPrice - product.discountedPrice) / product.actualPrice) * 100)}% OFF
+                  </span>
+                </div>
+                <span style={{ textDecoration: 'line-through', color: '#94a3b8', fontSize: '0.8rem', fontWeight: 500 }}>
+                  {formatCurrency(product.actualPrice)}
+                </span>
+              </div>
             ) : (
-              <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>Contact for Price</span>
-            )}
-          </span>
+              <span className="text-primary font-bold" style={{ fontSize: '1.1rem', fontWeight: 800 }}>
+                {formatCurrency(product.price)}
+              </span>
+            )
+          ) : product.pricingType === 'wholesale' ? (
+            <span style={{ color: '#059669', fontSize: '0.9rem', fontWeight: 700 }}>Wholesale Price</span>
+          ) : (
+            <span style={{ fontSize: '0.75rem', opacity: 0.8, fontWeight: 600 }}>Contact for Price</span>
+          )}
+        </div>
         </div>
       </div>
     </div>

@@ -17,6 +17,8 @@ export interface Product {
   capacity?: string;
   pricingType?: 'standard' | 'wholesale' | 'contact';
   stock?: string;
+  actualPrice?: number;
+  discountedPrice?: number;
   promises?: {
     genuine: boolean;
     delivery: boolean;
@@ -51,6 +53,8 @@ export type Order = {
   deliveryStatus: 'pending' | 'available' | 'not available' | 'shipping' | 'ready for delivery' | 'delivered' | 'cancelled';
   userId?: string;
   deliveryDate?: string;
+  cancelReason?: string;
+  cancelledBy?: string;
 };
 
 // CATEGORIES

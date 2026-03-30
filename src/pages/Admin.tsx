@@ -28,7 +28,9 @@ export default function Admin() {
     inStock: true,
     stock: '',
     specifications: '',
-    pricingType: 'standard'
+    pricingType: 'standard',
+    actualPrice: 0,
+    discountedPrice: 0
   });
   const [catName, setCatName] = useState('');
   const [tempUrl, setTempUrl] = useState('');
@@ -125,7 +127,7 @@ export default function Admin() {
       }
 
       fetchData();
-      setFormData({ name: '', category: '', price: 0, description: '', image: '', images: [], inStock: true, stock: '', specifications: '' });
+      setFormData({ name: '', category: '', price: 0, description: '', image: '', images: [], inStock: true, stock: '', specifications: '', actualPrice: 0, discountedPrice: 0 });
       setIsEditing(false);
     } catch (err) {
       console.error("Error saving product", err);
@@ -248,8 +250,19 @@ export default function Admin() {
                   </select>
                 </div>
                 <div className="input-group">
-                  <label className="label">Price (₹)</label>
+                  <label className="label">Price (₹) <span style={{fontSize: '0.7rem', opacity: 0.7}}>(Main Display Price)</span></label>
                   <input type="number" className="input" value={formData.price || 0} onChange={e => setFormData(prev => ({ ...prev, price: Number(e.target.value) }))} required />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm-grid-cols-2" style={{ gap: '1.5rem', display: 'grid', marginTop: '1rem' }}>
+                <div className="input-group">
+                  <label className="label">Actual Price (₹) <span style={{fontSize: '0.7rem', opacity: 0.7}}>(Strike-through)</span></label>
+                  <input type="number" className="input" value={formData.actualPrice || 0} onChange={e => setFormData(prev => ({ ...prev, actualPrice: Number(e.target.value) }))} />
+                </div>
+                <div className="input-group">
+                  <label className="label">Discounted Price (₹) <span style={{fontSize: '0.7rem', opacity: 0.7}}>(Selling Price)</span></label>
+                  <input type="number" className="input" value={formData.discountedPrice || 0} onChange={e => setFormData(prev => ({ ...prev, discountedPrice: Number(e.target.value) }))} />
                 </div>
               </div>
 
@@ -498,7 +511,7 @@ export default function Admin() {
                     disabled={uploading} 
                     onClick={() => { 
                       setIsEditing(false); 
-                      setFormData({ name: '', category: '', price: 0, description: '', image: '', images: [], inStock: true, stock: '', specifications: '', pricingType: 'standard', promises: { genuine: true, delivery: true, warranty: true } }); 
+                      setFormData({ name: '', category: '', price: 0, description: '', image: '', images: [], inStock: true, stock: '', specifications: '', pricingType: 'standard', actualPrice: 0, discountedPrice: 0, promises: { genuine: true, delivery: true, warranty: true } }); 
                     }}
                   >
                     Cancel Edit

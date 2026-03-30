@@ -101,9 +101,27 @@ function ProductDetails() {
           </div>
 
           <h1 className="heading-lg" style={{ marginBottom: '1rem' }}>{product.name}</h1>
-          <div className="text-primary font-bold mb-6" style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem' }}>
+          <div className="flex-col mb-6" style={{ marginBottom: '2rem', display: 'flex', gap: '0.25rem' }}>
             {(!product.pricingType || product.pricingType === 'standard') ? (
-              formatCurrency(product.price)
+              product.discountedPrice && product.actualPrice ? (
+                <div className="flex-col">
+                  <div className="flex items-end gap-3">
+                    <span className="text-primary font-bold" style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1 }}>
+                      {formatCurrency(product.discountedPrice)}
+                    </span>
+                    <span style={{ color: '#10b981', fontSize: '1rem', fontWeight: 800, background: '#ecfdf5', padding: '4px 12px', borderRadius: '8px', marginBottom: '4px' }}>
+                      {Math.round(((product.actualPrice - product.discountedPrice) / product.actualPrice) * 100)}% DISCOUNT
+                    </span>
+                  </div>
+                  <span style={{ textDecoration: 'line-through', color: '#94a3b8', fontSize: '1.2rem', fontWeight: 600, marginTop: '0.5rem' }}>
+                    MRP: {formatCurrency(product.actualPrice)}
+                  </span>
+                </div>
+              ) : (
+                <span className="text-primary font-bold" style={{ fontSize: '2rem', fontWeight: 800 }}>
+                  {formatCurrency(product.price)}
+                </span>
+              )
             ) : (
               <div className="flex flex-col gap-1">
                 <span style={{ fontSize: '1.2rem', color: 'var(--color-primary)', display: 'block', background: 'rgba(30, 58, 138, 0.05)', padding: '0.8rem 1.2rem', borderRadius: '0.5rem', border: '1px solid rgba(30, 58, 138, 0.1)' }}>

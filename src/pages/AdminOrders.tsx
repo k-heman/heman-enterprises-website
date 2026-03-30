@@ -132,6 +132,17 @@ const AdminOrders: React.FC = () => {
                     <div className="order-meta">
                       <p>Order ID: {(order.id || '').slice(-6).toUpperCase() || 'N/A'}</p>
                       <p>{order?.createdAt ? `${new Date(order.createdAt).toLocaleDateString()} @ ${new Date(order.createdAt).toLocaleTimeString()}` : 'Date Unknown'}</p>
+                      
+                      {order.status === 'cancelled' && (
+                        <div className="admin-cancel-reason" style={{ marginTop: '1rem', padding: '0.75rem', background: '#fff1f2', border: '1px solid #ffe4e6', borderRadius: '8px' }}>
+                          <p style={{ color: '#be123c', fontWeight: 800, fontSize: '0.7rem', textTransform: 'uppercase', marginBottom: '4px' }}>
+                            {order.cancelledBy === 'user' ? '⚠️ User Cancelled' : 'Admin Cancelled'}
+                          </p>
+                          <p style={{ color: '#475569', fontSize: '0.85rem', fontWeight: 500, fontStyle: 'italic', margin: 0 }}>
+                            "{order.cancelReason || 'No reason provided'}"
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </div>
 

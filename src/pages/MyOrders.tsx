@@ -50,11 +50,15 @@ const MyOrders: React.FC = () => {
     setCancellingId(order.id);
     try {
       // Update DB status
-      await updateOrder(order.id, { status: 'cancelled' });
+      await updateOrder(order.id, {
+        status: 'cancelled',
+        cancelReason: cancelReason,
+        cancelledBy: 'user'
+      });
 
       // Update local state
       setOrders(prev => prev.map(o =>
-        o.id === order.id ? { ...o, status: 'cancelled' } : o
+        o.id === order.id ? { ...o, status: 'cancelled', cancelReason: cancelReason, cancelledBy: 'user' } : o
       ));
 
       // WhatsApp Message logic
@@ -242,7 +246,7 @@ const MyOrders: React.FC = () => {
                       disabled={cancellingId === order.id || !cancelReason.trim()}
                       className="btn-submit-cancel"
                     >
-                      {cancellingId === order.id ? 'Processing...' : 'Submit & Message on WhatsApp'}
+                      {cancellingId === order.id ? 'Processing...' : 'Submit'}
                     </button>
                   </div>
                 )}
