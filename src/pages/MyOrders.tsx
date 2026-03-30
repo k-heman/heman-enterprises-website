@@ -86,6 +86,7 @@ const MyOrders: React.FC = () => {
     const s = (status || 'pending').toLowerCase();
     switch (s) {
       case 'confirmed': return { bg: '#eff6ff', text: '#2563eb', border: '#dbeafe' };
+      case 'accepted':
       case 'available': return { bg: '#ecfdf5', text: '#059669', border: '#d1fae5' };
       case 'not available': return { bg: '#fff1f2', text: '#e11d48', border: '#ffe4e6' };
       case 'shipping': return { bg: '#faf5ff', text: '#9333ea', border: '#f3e8ff' };
@@ -185,7 +186,9 @@ const MyOrders: React.FC = () => {
                               borderColor: getStatusStyle(order.status).border
                             }}
                           >
-                            <span style={{ textTransform: 'capitalize' }}>{order.status || 'Pending'}</span>
+                            <span style={{ textTransform: 'capitalize' }}>
+                              {order.status === 'available' ? 'Accepted' : (order.status || 'Pending')}
+                            </span>
                           </div>
                         </div>
 
@@ -206,7 +209,7 @@ const MyOrders: React.FC = () => {
                             {order.deliveryDate && order.deliveryStatus !== 'not available' && (
                               <div className="expected-date">
                                 <Calendar size={15} color="#1e3a8a" />
-                                <span>Exp: {new Date(order.deliveryDate).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                <span>Delivery Date: {new Date(order.deliveryDate).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                               </div>
                             )}
                           </div>

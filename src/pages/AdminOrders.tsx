@@ -50,7 +50,7 @@ const AdminOrders: React.FC = () => {
   const getBadgeStyle = (status: string) => {
     const s = (status || 'pending').toLowerCase();
     if (s === 'cancelled') return { background: '#e5e7eb', color: '#4b5563' }; // Gray
-    if (s === 'available' || s === 'delivered') return { background: '#d1fae5', color: '#047857' }; // Green
+    if (s === 'available' || s === 'accepted' || s === 'delivered') return { background: '#d1fae5', color: '#047857' }; // Green
     return { background: '#ffedd5', color: '#c2410c' }; // Orange/Pending
   };
 
@@ -185,7 +185,7 @@ const AdminOrders: React.FC = () => {
                         disabled={updatingId === order.id}
                       >
                         <option value="pending">Pending</option>
-                        <option value="available">Accepted</option>
+                        <option value="accepted">Accepted</option>
                         <option value="not available">Not Available</option>
                         <option value="cancelled">Cancelled</option>
                       </select>

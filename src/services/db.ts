@@ -49,7 +49,7 @@ export type Order = {
   };
   quantity: number;
   createdAt: any;
-  status: 'pending' | 'available' | 'not available' | 'shipping' | 'ready for delivery' | 'delivered' | 'cancelled';
+  status: 'pending' | 'accepted' | 'available' | 'not available' | 'shipping' | 'ready for delivery' | 'delivered' | 'cancelled';
   deliveryStatus: 'pending' | 'available' | 'not available' | 'shipping' | 'ready for delivery' | 'delivered' | 'cancelled';
   userId?: string;
   deliveryDate?: string;
