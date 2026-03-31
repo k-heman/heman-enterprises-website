@@ -11,7 +11,7 @@ const Cart: React.FC = () => {
 
 
   const handleWhatsAppCheckout = () => {
-    const phoneNumber = "919959916507"; // From WhatsAppButton.tsx
+    const phoneNumber = "919014627762"; // From WhatsAppButton.tsx
     const itemsList = cart.map(item => `- ${item.name} (₹${item.price.toLocaleString()})`).join('\n');
     const userName = user?.name || "Customer";
     const message = `I am ${userName} and I am interested to buy the following items:\n${itemsList}\n\nTotal Price: ₹${cartTotal.toLocaleString()}\n\nShare more details.`;

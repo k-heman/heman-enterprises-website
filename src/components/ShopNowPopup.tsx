@@ -65,7 +65,7 @@ const ShopNowPopup: React.FC<ShopNowPopupProps> = ({ product, onClose }) => {
       await addOrder(orderData as any);
 
       // 2. Redirect to WhatsApp
-      const phoneNumber = "919959916507";
+      const phoneNumber = "919014627762";
       const message = `Hi Mr. John, \n I am ${formData.fullName}, I want to order ${formData.quantity}, ${product.name}\n Accept my order and share the aviablity and total price.`;
 
       window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');

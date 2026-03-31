@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, MapPin, Mail } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 function Footer() {
   return (
@@ -26,20 +26,20 @@ function Footer() {
 
         {/* Contact info */}
         <div>
-          <h3 className="heading-sm mb-4" style={{ marginBottom: '1rem', color: 'white' }}>Contact Us</h3>
+          <h3 className="heading-sm mb-4" style={{ marginBottom: '1rem', color: 'white' }}>Store Location</h3>
           <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--text-muted)' }}>
             <li className="flex" style={{ gap: '1rem', alignItems: 'flex-start' }}>
               <MapPin size={20} className="text-accent" />
               <span>Gundaram, Kamanpur X-Road<br />Peddapalli, Telangana 505188</span>
             </li>
-            <li className="flex" style={{ gap: '1rem', alignItems: 'center' }}>
+            {/* <li className="flex" style={{ gap: '1rem', alignItems: 'center' }}>
               <Phone size={20} className="text-accent" />
               <span>+91 9014627762 <br />+91 99599 16507</span>
             </li>
             <li className="flex" style={{ gap: '1rem', alignItems: 'center' }}>
               <Mail size={20} className="text-accent" />
               <span>k.heman0123@gmail.com</span>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

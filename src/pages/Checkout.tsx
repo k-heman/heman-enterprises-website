@@ -116,7 +116,7 @@ const Checkout: React.FC = () => {
       sessionStorage.removeItem(`checkoutFormData_${id}`);
 
       // Automated WhatsApp message
-      const whatsappNumber = "919959916507";
+      const whatsappNumber = "919014627762";
       const priceText = (!product.pricingType || product.pricingType === 'standard') ? formatCurrency(product.price) : "Contact for Price";
       const message = `Hii, \n I am ${formData.fullName}, i want to buy ${product.name} which was ${priceText}. \n Confirm my order and share more details about delivery.`;
 

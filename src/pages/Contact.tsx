@@ -1,11 +1,11 @@
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Clock, MessageCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 function Contact() {
   const { user } = useAuth();
   const userName = user?.username || 'Guest';
   const whatsappMessage = `Hello, I am ${userName}, I have a query about your products and services.`;
-  const whatsappUrl = `https://wa.me/919959916507?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/919014627762?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="section container animate-fade-in" style={{ padding: '3rem 1.5rem', minHeight: '80vh' }}>
@@ -31,7 +31,7 @@ function Contact() {
             </div>
           </div>
 
-          <div className="flex" style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
+          {/* <div className="flex" style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
             <div style={{ background: 'rgba(30, 58, 138, 0.1)', padding: '1rem', borderRadius: '50%', color: 'var(--color-primary)' }}>
               <Phone size={24} />
             </div>
@@ -49,7 +49,7 @@ function Contact() {
               <h3 className="heading-sm mb-2" style={{ marginBottom: '0.25rem' }}>Email Address</h3>
               <p className="text-muted">k.heman0123@gmail.com</p>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex" style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
             <div style={{ background: 'rgba(30, 58, 138, 0.1)', padding: '1rem', borderRadius: '50%', color: 'var(--color-primary)' }}>
