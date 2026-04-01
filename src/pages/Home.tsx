@@ -95,6 +95,31 @@ function Home() {
         </div>
       </section>
 
+       {/* Featured Products */}
+      <section className="section bg-light" style={{ padding: '5rem 0', background: 'var(--color-bg-light)' }}>
+        <div className="container">
+          <div className="flex-between mb-8" style={{ marginBottom: '3rem' }}>
+            <h2 className="heading-lg">Featured Products</h2>
+            <button 
+              onClick={(e) => handleLinkClick(e, '/products')} 
+              className="btn btn-outline"
+            >
+              View All
+            </button>
+          </div>
+          
+          {featuredProducts.length > 0 ? (
+            <div className="product-grid">
+              {featuredProducts.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center p-8 text-muted">Loading products... Make sure the backend server is running.</div>
+          )}
+        </div>
+      </section>
+
       {/* Trust Badges */}
       <section className="section bg-light" style={{ padding: '3rem 0', background: 'white', borderBottom: '1px solid #f1f5f9' }}>
         <div className="container grid grid-cols-1 md-grid-cols-3" style={{ gap: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
@@ -133,30 +158,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="section bg-light" style={{ padding: '5rem 0', background: 'var(--color-bg-light)' }}>
-        <div className="container">
-          <div className="flex-between mb-8" style={{ marginBottom: '3rem' }}>
-            <h2 className="heading-lg">Featured Products</h2>
-            <button 
-              onClick={(e) => handleLinkClick(e, '/products')} 
-              className="btn btn-outline"
-            >
-              View All
-            </button>
-          </div>
-          
-          {featuredProducts.length > 0 ? (
-            <div className="product-grid">
-              {featuredProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center p-8 text-muted">Loading products... Make sure the backend server is running.</div>
-          )}
-        </div>
-      </section>
+     
     </div>
   );
 }
