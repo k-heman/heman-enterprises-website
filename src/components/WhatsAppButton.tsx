@@ -19,13 +19,13 @@ function WhatsAppButton() {
 
   return (
     <div className="floating-contact-container">
-      {/* <button
+       <button
         onClick={handlePhoneClick}
         className="phone-float flex-center"
         aria-label="Call Us"
       >
         <Phone size={24} />
-      </button> */}
+      </button> 
       <button
         onClick={handleWhatsAppClick}
         className="whatsapp-float flex-center"
