@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Phone} from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 function WhatsAppButton() {
