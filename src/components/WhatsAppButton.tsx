@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 
 function WhatsAppButton() {
   const { user } = useAuth();
-  // const phoneNumber = '+919959916507';
+  const phoneNumber = '+919014627762';
   const whatsappNumber = '919014627762';
   const message = user
     ? `Hello, I am ${user.username}, I want to know more about your products and services.`
@@ -13,9 +13,9 @@ function WhatsAppButton() {
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  // const handlePhoneClick = () => {
-  //   window.location.href = `tel:${phoneNumber}`;
-  // };
+   const handlePhoneClick = () => {
+     window.location.href = `tel:${phoneNumber}`;
+   };
 
   return (
     <div className="floating-contact-container">
